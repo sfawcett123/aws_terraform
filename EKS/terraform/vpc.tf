@@ -6,10 +6,6 @@ resource "aws_vpc" "main" {
   }
 }
 
-data "aws_availability_zones" "available" {
-  state = "available"
-}
-
 variable "bastion_subnet_cidrs" {
  type        = list(string)
  description = "Bastion Subnet CIDR values"
