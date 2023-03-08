@@ -20,7 +20,7 @@
 
 title: AWS Terraform
 email: steven.fawcett@me.com
-description: >- # this means to ignore newlines until "baseurl:"
+description: AWS Terraforrm Design Repo 
 baseurl: "https://sfawcett123.github.io/aws_terraform/" 
 url: "https://sfawcett123.github.io/aws_terraform/" 
 github_username:  sfawcett123
