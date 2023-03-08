@@ -21,8 +21,8 @@
 title: AWS Terraform
 email: steven.fawcett@me.com
 description: AWS Terraforrm Design Repo 
-baseurl: "https://sfawcett123.github.io/aws_terraform/" 
-url: "https://sfawcett123.github.io/aws_terraform/" 
+baseurl: "https://sfawcett123.github.io/" 
+url: "/aws_terraform/" 
 github_username:  sfawcett123
 
 # Build settings
