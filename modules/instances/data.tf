@@ -1,9 +1,3 @@
-data "aws_region" "current" {}
-
-data "aws_availability_zones" "available" {
-  state = "available"
-}
-
 data "aws_ami" "ubuntu" {
   most_recent = true
 
@@ -19,3 +13,15 @@ data "aws_ami" "ubuntu" {
 
   owners = ["099720109477"] # Canonical
 }
+
+data "aws_subnet" "selected" {
+  id = var.subnet_id
+}
+
+data "aws_internet_gateway" "default" {
+  filter {
+    name   = "attachment.vpc-id"
+    values = [var.vpc_id]
+  }
+}
+

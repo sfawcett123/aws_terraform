@@ -26,7 +26,8 @@ baseurl: "/aws_terraform"
 github_username:  sfawcett123
 
 # Build settings
-remote_theme: just-the-docs
+theme: just-the-docs
+#remote_theme: just-the-docs
 plugins:
   - jekyll-feed
 
