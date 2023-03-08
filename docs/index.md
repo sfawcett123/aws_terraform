@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: page
+title: Index
+has_children: true
 ---
-
-Decisions

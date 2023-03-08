@@ -2,6 +2,7 @@
 layout: default
 title: Provider
 parent: Terraform
+grand_parent: Index
 nav_order: 8
 has_toc: false
 ---
