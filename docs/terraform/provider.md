@@ -1,12 +1,3 @@
----
-layout: default
-title: Provider
-parent: Terraform
-grand_parent: Index
-nav_order: 8
-has_toc: false
----
-
 # Terraform Provider
 
 You must tell terraform which 'providers' you are going to need, in our case we are going to use the AWS Provider. A full list can be found at [Hashicorp Terraform Registry]( https://registry.terraform.io/browse/providers)

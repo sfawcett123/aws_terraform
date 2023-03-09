@@ -1,12 +1,3 @@
----
-layout: default
-title: Install
-parent: Terraform
-grand_parent: Index
-nav_order: 2
-has_toc: false
----
-
 # Installation
 
 ## Version Manager
