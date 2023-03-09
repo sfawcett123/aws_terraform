@@ -25,3 +25,8 @@ data "aws_internet_gateway" "default" {
   }
 }
 
+locals {
+   tags = {
+        Name = var.name
+   }
+}

@@ -1,12 +1,11 @@
-# Call our simple VPC module
-data "aws_region" "current" {}
-
 module "vpc" {
     source = "../modules/vpc"
 }
 
-module "subnet" {
+module "bastion" {
     source = "../modules/subnet"
+
+    name = "Bastion"
     vpc_id = module.vpc.vpc_id
   
     subnet_cidrs = [ "10.0.1.0/24" ]
@@ -14,8 +13,10 @@ module "subnet" {
 
 module "instance" {
     source = "../modules/instances"
-    vpc_id = module.vpc.vpc_id
-    subnet_id = module.subnet.subnet_id[0]
 
-    depends_on = [ module.subnet ]
+    name = "Bastion"
+    vpc_id = module.vpc.vpc_id
+    subnet_id = module.bastion.subnets[0].id
+
+    depends_on = [ module.bastion ]
 }

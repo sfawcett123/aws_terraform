@@ -2,7 +2,7 @@ resource "aws_eip" "ip-test-env" {
   instance = aws_instance.instance.id
   vpc      = true
 
-  tags = var.default_tags
+  tags = merge( var.default_tags , local.tags )
 }
 
 resource "aws_route_table" "instance" {
@@ -11,7 +11,7 @@ resource "aws_route_table" "instance" {
     cidr_block = "0.0.0.0/0"
     gateway_id = data.aws_internet_gateway.default.id
   }
-  tags = var.default_tags
+  tags = merge( var.default_tags , local.tags )
 }
 
 resource "aws_route_table_association" "instance-association" {

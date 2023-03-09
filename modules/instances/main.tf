@@ -3,7 +3,7 @@ resource "aws_key_pair" "instance" {
   key_name   = "instance-key"
   public_key = file("~/.ssh/id_rsa.pub")
 
-  tags = var.default_tags
+  tags = merge( var.default_tags , local.tags )
 }
 
 resource "aws_instance" "instance" {
@@ -14,7 +14,7 @@ resource "aws_instance" "instance" {
   vpc_security_group_ids = [aws_security_group.instance.id]
   subnet_id       = var.subnet_id
 
-  tags = var.default_tags
+  tags = merge( var.default_tags , local.tags )
 }
 
 resource "aws_security_group" "instance" {
@@ -35,5 +35,5 @@ resource "aws_security_group" "instance" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = var.default_tags
+  tags = merge( var.default_tags , local.tags )
 }

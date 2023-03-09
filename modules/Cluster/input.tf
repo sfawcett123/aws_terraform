@@ -1,18 +1,16 @@
+variable cluster_subnets {
+    description = "List of Subnets (Mandatory)"
+}
+
 variable "vpc_id" {
    type = string
    description = "VPC ID (Mandatory)"
 }
 
-variable "subnet_cidrs" {
-  type        = list(string)
-  description = "Subnet CIDR values [Optional]"
-  default     = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
-}
-
 variable "name" {
    type = string
    description = "Name (Optional)"
-   default = "subnet"
+   default = "Cluster"
 }
 
 variable "default_tags" {
@@ -22,3 +20,10 @@ variable "default_tags" {
         environment_type = "Dev Environment"
     }
 }
+
+variable ami_name {
+    type = string
+    description = "AMI Name (Optional) Defaults to ubuntu"
+    default = "ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"
+}
+
