@@ -7,3 +7,11 @@ variable "vpc_id" {
    type = string
    description = "VPC ID (Mandatory)"
 }
+
+variable "default_tags" {
+    type = map
+    description = "Default Tags [Optional]"
+    default = {
+        environment_type = "Dev Environment"
+    }
+}

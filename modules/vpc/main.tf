@@ -4,15 +4,11 @@ resource "aws_vpc" "main" {
   enable_dns_hostnames = true
   enable_dns_support   = true
 
-  tags = {
-    Name = "EKS Cluster"
-  }
+  tags = var.default_tags
 }
 
 resource "aws_internet_gateway" "gw" {
   vpc_id = aws_vpc.main.id
 
-  tags = {
-    Name = "Cluster Internet GW"
-  }
+  tags = var.default_tags
 }

@@ -1,6 +1,8 @@
 resource "aws_eip" "ip-test-env" {
   instance = aws_instance.instance.id
   vpc      = true
+
+  tags = var.default_tags
 }
 
 resource "aws_route_table" "instance" {
@@ -9,9 +11,7 @@ resource "aws_route_table" "instance" {
     cidr_block = "0.0.0.0/0"
     gateway_id = data.aws_internet_gateway.default.id
   }
-  tags = {
-    Name = "Bastion Route Table"
-  }
+  tags = var.default_tags
 }
 
 resource "aws_route_table_association" "instance-association" {

@@ -2,6 +2,8 @@
 resource "aws_key_pair" "instance" {
   key_name   = "instance-key"
   public_key = file("~/.ssh/id_rsa.pub")
+
+  tags = var.default_tags
 }
 
 resource "aws_instance" "instance" {
@@ -12,9 +14,7 @@ resource "aws_instance" "instance" {
   vpc_security_group_ids = [aws_security_group.instance.id]
   subnet_id       = var.subnet_id
 
-  tags = {
-    Name = "Instance"
-  }
+  tags = var.default_tags
 }
 
 resource "aws_security_group" "instance" {
@@ -34,4 +34,6 @@ resource "aws_security_group" "instance" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
+  tags = var.default_tags
 }
