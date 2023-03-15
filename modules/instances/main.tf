@@ -10,9 +10,13 @@ resource "aws_instance" "instance" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
 
-  key_name        = aws_key_pair.instance.key_name
+  key_name               = aws_key_pair.instance.key_name
   vpc_security_group_ids = [aws_security_group.instance.id]
-  subnet_id       = var.subnet_id
+  subnet_id              = var.subnet_id
+
+  iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
+
+  user_data = file("${path.module}/files/startup.sh")
 
   tags = merge( var.default_tags , local.tags )
 }

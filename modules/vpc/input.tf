@@ -4,4 +4,9 @@ variable "default_tags" {
     default = {
         environment_type = "Dev Environment"
     }
-} 
+}
+variable "name" {
+   type = string
+   description = "Name (Optional)"
+   default = "Cluster"
+}

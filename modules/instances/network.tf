@@ -3,6 +3,10 @@ resource "aws_eip" "ip-test-env" {
   vpc      = true
 
   tags = merge( var.default_tags , local.tags )
+
+  depends_on = [
+        aws_instance.instance
+  ]
 }
 
 resource "aws_route_table" "instance" {

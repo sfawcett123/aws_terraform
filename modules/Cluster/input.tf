@@ -7,6 +7,12 @@ variable "vpc_id" {
    description = "VPC ID (Mandatory)"
 }
 
+variable "ec2_role_name" {
+   type = string
+   description = "Bastion Role Name (Optional)"
+   default = ""
+}
+
 variable "name" {
    type = string
    description = "Name (Optional)"
